@@ -104,8 +104,15 @@ if __name__ == "__main__":
         
     X = data.copy()
     X = X.reshape(X.shape[0], -1)[0:100]
+    print(X)
+    # print X image with imgshow
+    import matplotlib.pyplot as plt
+    plt.imshow(X[0].reshape(8,8))
+    plt.show()
     
     saab = Saab(num_kernels=-1, needBias=True, bias=0)
     saab.fit(X)
     
     Xt = saab.transform(X)
+    print(" output feature shape: %s"%str(Xt.shape))
+    print(Xt)
